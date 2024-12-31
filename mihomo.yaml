@@ -69,6 +69,9 @@ proxy-groups:
 rules:
   - RULE-SET,mycn_domain,🇨🇳 cnsite
   - RULE-SET,mycn_ip,🇨🇳 cnsite
+  - RULE-SET,jetbrains_domain,🇨🇳 cnsite
+  - RULE-SET,cn_domain,🎯 全球直连
+  - RULE-SET,cn_ip,🎯 全球直连
   - RULE-SET,steam_domain,🚂 Steam
   - RULE-SET,epic_domain,🎅 EpicGames
   - RULE-SET,private_domain,🟢 直连
@@ -80,6 +83,7 @@ rules:
   - RULE-SET,youtube_domain,📹 YouTube
   - RULE-SET,google_domain,🍀 Google
   - RULE-SET,onedrive_domain,🐬 OneDrive
+  - RULE-SET,cnbing_domain,🇨🇳 cnsite
   - RULE-SET,microsoft_domain,🪟 Microsoft
   - RULE-SET,tiktok_domain,🎵 TikTok
   - RULE-SET,speedtest_domain,✈️ Speedtest
@@ -87,11 +91,9 @@ rules:
   - RULE-SET,netflix_domain,🎥 NETFLIX
   - RULE-SET,paypal_domain,💶 PayPal
   - RULE-SET,geolocation-!cn,🚀 节点选择
-  - RULE-SET,cn_domain,🎯 全球直连
   - RULE-SET,google_ip,🍀 Google,no-resolve
   - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve,no-resolve
   - RULE-SET,telegram_ip,📲 Telegram,no-resolve
-  - RULE-SET,cn_ip,🎯 全球直连
   - RULE-SET,AntiAd,REJECT
   - MATCH,🐟 漏网之鱼
 rule-anchor:
@@ -107,6 +109,8 @@ rule-providers:
   mycn_domain: { <<: *list, url: "https://raw.githubusercontent.com/gyyst/mygeo/refs/heads/main/cnsite.list" }
   mycn_ip: { <<: *ip_class, url: "https://raw.githubusercontent.com/gyyst/mygeo/refs/heads/main/cnsiteip.list" }
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs" }
+  jetbrains_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/jetbrains@cn.mrs" }
+  cnbing_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bing@cn.mrs" }
   direct1: { <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/master/Direct.list" }
   proxylite: { <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/master/ProxyLite.list" }
   ai: { <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/master/AI.list" }
