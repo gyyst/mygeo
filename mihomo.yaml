@@ -9,6 +9,7 @@ proxy-providers:
     proxy: 🟢 直连
     url: ""
 
+
 unified-delay: true
 tcp-concurrent: true
 global-client-fingerprint: chrome
@@ -57,44 +58,66 @@ proxy-groups:
   - {name: 🇭🇰 香港节点, type: select, include-all: true, filter: "(?i)港|hk|hongkong|hong kong"}
   - {name: 🇯🇵 日本节点, type: select, include-all: true, filter: "(?i)日|jp|japan"}
   - {name: 🇺🇲 美国节点, type: select, include-all: true, filter: "(?i)美|us|unitedstates|united states"}
-  - {name: ☁︎ Clcoudflare节点, type: select, include-all: true, filter: "(?=.*(CF|Cloudflare))^((?!(港|台|日|韩|新|美)).)*$"}
+  - {name: ☁︎ Clcoudflare节点, type: select, include-all: true, filter: "(?=.*((?i)CF|(?i)Cloudflare))^((?!(港|台|日|韩|新|美)).)*$"}
   - {name: 🔯 香港故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
   - {name: 🔯 日本故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
   - {name: ♻️ 香港自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
   - {name: ♻️ 新加坡自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新|SG|(?i)Singapore))^((?!(港|台|韩|日|美)).)*$" }
   - {name: ♻️ 日本自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
   - {name: ♻️ 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}
-  - {name: ♻️ Clcoudflare自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(CF|Cloudflare))^((?!(港|台|日|韩|新|美)).)*$"}
-  - {name: 🇿🇦 南非节点, type: select, include-all: true, filter: "(?i)(?=.*(za|south africa))^(?!.*(test|test1)).*$"}
-  - {name: 🇮🇳 印度节点, type: select, include-all: true, filter: "(?i)(?=.*(in|india))^(?!.*(test|test1)).*$"}
-  - {name: 🇫🇷 法国节点, type: select, include-all: true, filter: "(?i)(?=.*(fr|france))^(?!.*(test|test1)).*$"}
-  - {name: 🇰🇷 韩国节点, type: select, include-all: true, filter: "(?i)(?=.*(kr|korea))^(?!.*(test|test1)).*$"}
-  - {name: 🇮🇱 以色列节点, type: select, include-all: true, filter: "(?i)(?=.*(il|israel))^(?!.*(test|test1)).*$"}
-  - {name: 🇨🇭 瑞士节点, type: select, include-all: true, filter: "(?i)(?=.*(ch|switzerland))^(?!.*(yiyuan|cf)).*$"}
-  - {name: 🇦🇺 澳大利亚节点, type: select, include-all: true, filter: "(?i)(?=.*(au|australia))^(?!.*(test|test1)).*$"}
-  - {name: 🇦🇪 阿联酋节点, type: select, include-all: true, filter: "(?i)(?=.*(ae|uae|united arab emirates))^(?!.*(test|test1)).*$"}
-  - {name: 🇨🇦 加拿大节点, type: select, include-all: true, filter: "(?i)(?=.*(ca|canada))^(?!.*(test|cable)).*$"}
-  - {name: 🇮🇹 意大利节点, type: select, include-all: true, filter: "(?i)(?=.*(it|italy))^(?!.*(test|cf)).*$"}
-  - {name: 🇹🇼 台湾节点, type: select, include-all: true, filter: "(?i)(?=.*(tw|taiwan))^(?!.*(test|test1)).*$"}
-  - {name: 🇹🇭 泰国节点, type: select, include-all: true, filter: "(?i)(?=.*(th|thailand))^(?!.*(test|test1)).*$"}
-  - {name: 🇳🇱 荷兰节点, type: select, include-all: true, filter: "(?i)(?=.*(nl|netherlands))^(?!.*(test|test1)).*$"}
-  - {name: 🇸🇪 瑞典节点, type: select, include-all: true, filter: "(?i)(?=.*(se|sweden))^(?!.*(test|cf)).*$"}
-  - {name: 🇧🇷 巴西节点, type: select, include-all: true, filter: "(?i)(?=.*(br|brazil))^(?!.*(test|test1)).*$"}
-  - {name: ♻️ 南非自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(za|south africa))^(?!.*(test|test1)).*$"}
-  - {name: ♻️ 印度自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(in|india))^(?!.*(test|test1)).*$"}
-  - {name: ♻️ 法国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(fr|france))^(?!.*(test|test1)).*$"}
-  - {name: ♻️ 韩国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(kr|korea))^(?!.*(test|test1)).*$"}
-  - {name: ♻️ 以色列自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(il|israel))^(?!.*(test|test1)).*$"}
-  - {name: ♻️ 瑞士自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(ch|switzerland))^(?!.*(yiyuan|cf)).*$"}
-  - {name: ♻️ 澳大利亚自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(au|australia))^(?!.*(test|test1)).*$"}
-  - {name: ♻️ 阿联酋自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(ae|uae|united arab emirates))^(?!.*(test|test1)).*$"}
-  - {name: ♻️ 加拿大自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(ca|canada))^(?!.*(test|cable)).*$"}
-  - {name: ♻️ 意大利自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(it|italy))^(?!.*(test|cf)).*$"}
-  - {name: ♻️ 台湾自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(tw|taiwan))^(?!.*(test|test1)).*$"}
-  - {name: ♻️ 泰国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(th|thailand))^(?!.*(test|test1)).*$"}
-  - {name: ♻️ 荷兰自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(nl|netherlands))^(?!.*(test|test1)).*$"}
-  - {name: ♻️ 瑞典自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(se|sweden))^(?!.*(test|cf)).*$"}
-  - {name: ♻️ 巴西自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(br|brazil))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ Clcoudflare自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*((?i)CF|(?i)Cloudflare))^((?!(港|台|日|韩|新|美)).)*$"}
+  - {name: 🇰🇷 韩国节点, type: select, include-all: true, filter: "(?i)(?=.*(kr|korea|韩国))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 韩国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(kr|korea|韩国))^(?!.*(test|test1)).*$"}
+  - {name: 🇹🇼 台湾节点, type: select, include-all: true, filter: "(?i)(?=.*(tw|taiwan|台湾))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 台湾自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(tw|taiwan|台湾))^(?!.*(test|test1)).*$"}
+  - {name: 🇨🇦 加拿大节点, type: select, include-all: true, filter: "(?i)(?=.*(ca|canada|加拿大))^(?!.*(test|cable)).*$"}
+  - {name: ♻️ 加拿大自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(ca|canada|加拿大))^(?!.*(test|cable)).*$"}
+  - {name: 🇦🇺 澳大利亚节点, type: select, include-all: true, filter: "(?i)(?=.*(au|australia|澳大利亚))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 澳大利亚自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(au|australia|澳大利亚))^(?!.*(test|test1)).*$"}
+  - {name: 🇬🇧 英国节点, type: select, include-all: true, filter: "(?i)(?=.*(uk|united kingdom|英国))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 英国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(uk|united kingdom|英国))^(?!.*(test|test1)).*$"}
+  - {name: 🇫🇷 法国节点, type: select, include-all: true, filter: "(?i)(?=.*(fr|france|法国))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 法国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(fr|france|法国))^(?!.*(test|test1)).*$"}
+  - {name: 🇮🇹 意大利节点, type: select, include-all: true, filter: "(?i)(?=.*(it|italy|意大利))^(?!.*(test|cf)).*$"}
+  - {name: ♻️ 意大利自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(it|italy|意大利))^(?!.*(test|cf)).*$"}
+  - {name: 🇳🇱 荷兰节点, type: select, include-all: true, filter: "(?i)(?=.*(nl|netherlands|荷兰))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 荷兰自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(nl|netherlands|荷兰))^(?!.*(test|test1)).*$"}
+  - {name: 🇩🇪 德国节点, type: select, include-all: true, filter: "(?i)(?=.*(de|germany|德国))^(?!.*(test|cf)).*$"}
+  - {name: ♻️ 德国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(de|germany|德国))^(?!.*(test|cf)).*$"}
+  - {name: 🇳🇴 挪威节点, type: select, include-all: true, filter: "(?i)(?=.*(no|norway|挪威))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 挪威自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(no|norway|挪威))^(?!.*(test|test1)).*$"}
+  - {name: 🇫🇮 芬兰节点, type: select, include-all: true, filter: "(?i)(?=.*(fi|finland|芬兰))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 芬兰自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(fi|finland|芬兰))^(?!.*(test|test1)).*$"}
+  - {name: 🇸🇪 瑞典节点, type: select, include-all: true, filter: "(?i)(?=.*(se|sweden|瑞典))^(?!.*(test|cf)).*$"}
+  - {name: ♻️ 瑞典自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(se|sweden|瑞典))^(?!.*(test|cf)).*$"}
+  - {name: 🇩🇰 丹麦节点, type: select, include-all: true, filter: "(?i)(?=.*(dk|denmark|丹麦))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 丹麦自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(dk|denmark|丹麦))^(?!.*(test|test1)).*$"}
+  - {name: 🇱🇹 立陶宛节点, type: select, include-all: true, filter: "(?i)(?=.*(lt|lithuania|立陶宛))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 立陶宛自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(lt|lithuania|立陶宛))^(?!.*(test|test1)).*$"}
+  - {name: 🇷🇺 俄罗斯节点, type: select, include-all: true, filter: "(?i)(?=.*(ru|russia|俄罗斯))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 俄罗斯自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(ru|russia|俄罗斯))^(?!.*(test|test1)).*$"}
+  - {name: 🇹🇷 土耳其节点, type: select, include-all: true, filter: "(?i)(?=.*(tr|turkey|土耳其))^(?!.*(test|cf)).*$"}
+  - {name: ♻️ 土耳其自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(tr|turkey|土耳其))^(?!.*(test|cf)).*$"}
+  - {name: 🇦🇹 奥地利节点, type: select, include-all: true, filter: "(?i)(?=.*(at|austria|奥地利))^(?!.*(test|nat)).*$"}
+  - {name: ♻️ 奥地利自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(at|austria|奥地利))^(?!.*(test|nat)).*$"}
+  - {name: 🇪🇸 西班牙节点, type: select, include-all: true, filter: "(?i)(?=.*(es|spain|西班牙))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 西班牙自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(es|spain|西班牙))^(?!.*(test|test1)).*$"}
+  - {name: 🇷🇴 罗马尼亚节点, type: select, include-all: true, filter: "(?i)(?=.*(ro|romania|罗马尼亚))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 罗马尼亚自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(ro|romania|罗马尼亚))^(?!.*(test|test1)).*$"}
+  - {name: 🇨🇿 捷克节点, type: select, include-all: true, filter: "(?i)(?=.*(cz|czech republic|捷克))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 捷克自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(cz|czech republic|捷克))^(?!.*(test|test1)).*$"}
+  - {name: 🇿🇦 南非节点, type: select, include-all: true, filter: "(?i)(?=.*(za|south africa|南非))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 南非自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(za|south africa|南非))^(?!.*(test|test1)).*$"}
+  - {name: 🇮🇳 印度节点, type: select, include-all: true, filter: "(?i)(?=.*(in|india|印度))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 印度自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(in|india|印度))^(?!.*(test|test1)).*$"}
+  - {name: 🇮🇱 以色列节点, type: select, include-all: true, filter: "(?i)(?=.*(il|israel|以色列))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 以色列自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(il|israel|以色列))^(?!.*(test|test1)).*$"}
+  - {name: 🇨🇭 瑞士节点, type: select, include-all: true, filter: "(?i)(?=.*(ch|switzerland|瑞士))^(?!.*(yiyuan|cf)).*$"}
+  - {name: ♻️ 瑞士自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(ch|switzerland|瑞士))^(?!.*(yiyuan|cf)).*$"}
+  - {name: 🇦🇪 阿联酋节点, type: select, include-all: true, filter: "(?i)(?=.*(ae|uae|united arab emirates|阿联酋))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 阿联酋自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(ae|uae|united arab emirates|阿联酋))^(?!.*(test|test1)).*$"}
+  - {name: 🇹🇭 泰国节点, type: select, include-all: true, filter: "(?i)(?=.*(th|thailand|泰国))^(?!.*(test|test1)).*$"}
+  - {name: ♻️ 泰国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(th|thailand|泰国))^(?!.*(test|test1)).*$"}
   - {name: ♻️ 自动选择, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(直连)).)*$"}
   - {name: 🌐 全部节点, type: select, include-all: true}
 rules:
