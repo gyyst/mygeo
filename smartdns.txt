@@ -27,7 +27,7 @@ serve-expired no
 
 #关闭特定域名的缓存（如DDNS）
 #domain-rules /example.com/ -no-cache
-
+domain-rules /ddns.com/ --no-serve-expired
 #禁用ipv6
 force-AAAA-SOA yes
 
@@ -37,12 +37,12 @@ force-qtype-SOA 65
 #设置日志文件（默认存放在/var/log/smartdns/smartdns.log）
 log-level debug
 log-size 128k
-log-num 8
+log-num 1
 
 #开启审计（默认存放在/var/log/smartdns/smartdns-audit.log）
 #可在这个文件里看到哪个客户端取到了哪个IP，可用来判断SmartDNS生效与否
 audit-enable yes
-audit-num 8
+audit-num 1
 
 #DNS服务器
 #运营商（改成宽带默认DNS）
