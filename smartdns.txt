@@ -1,29 +1,37 @@
 # Add custom settings here.
 # please read https://pymumu.github.io/smartdns/config/basic-config/
 #绑定端口（udp）
-bind [::]:6053
+#bind :6053
 
 #指定域名结果缓存个数（不配置就是根据内存自动，如果觉得查询压力大再手动改）
 #cache-size 32768
 
+#过期缓存预获取时间
+serve-expired-prefetch-time 21600
+
+#设置cache定时保存
+cache-checkpoint-time 86400
+
 #域名结果TTL（默认为远程查询结果）
 #rr-ttl 0
 #允许的最小TTL（默认为远程查询结果）配合后面的预获取，防止过于频繁请求
-rr-ttl-min 600
+#rr-ttl-min 100
 #允许的最大TTL（默认为远程查询结果）
-#rr-ttl-max 600
+rr-ttl-max 1200
 #允许返回给客户端的最大TTL（默认为远程查询结果）
-#rr-ttl-reply-max 600
+rr-ttl-reply-max 60
 
 #缓存预获取（域名TTL即将超时时，再次发送查询请求）
 prefetch-domain yes
 #过期缓存（即乐观缓存）
-serve-expired no
+serve-expired yes
 #关于预获取和过期缓存，有四种情况，需要分别讨论。
 #情况1：开启预获取，开启过期缓存：缓存过期一定时间后，再次发送查询请求，缓存新结果。（与情况3相比，缓解开启预获取导致的CPU压力）
 #情况2：关闭预获取，开启过期缓存：客户端查询时，即使该域名缓存已过期（TTL为0），仍然返回已缓存IP，同时向上查询并缓存最新结果。若5s（默认值，可改）后客户端再此查询，则返回新结果。（与开启乐观缓存的AGH效果相同）
 #情况3：开启预获取，关闭过期缓存：域名缓存即将过期（TTL即将为0）时，再次发送查询请求，缓存新结果。（本配置使用的情况，效果最好，但请求频率较高）
 #情况4：关闭预获取，关闭过期缓存：客户端查询时，若该域名缓存已过期（TTL为0），则向上查询，返回结果并缓存。
+
+
 
 #关闭特定域名的缓存（如DDNS）
 #domain-rules /example.com/ -no-cache
@@ -99,5 +107,3 @@ server 1.1.1.1
 
 # Verisign DNS
 server 64.6.65.6
-
-
