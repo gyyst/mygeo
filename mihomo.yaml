@@ -7,7 +7,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 300
     proxy: 🟢 直连
-    url: ""
+    url: "null"
 
 unified-delay: true
 tcp-concurrent: true
@@ -120,11 +120,10 @@ proxy-groups:
   - {name: ♻️ 泰国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(th|thailand|泰国))^(?!.*(test|test1)).*$"}
   - {name: 🌐 全部节点, type: select, include-all: true}
 rules:
+  - RULE-SET,AntiAd,REJECT
   - RULE-SET,mycn_domain,🇨🇳 cnsite
-  - RULE-SET,mycn_ip,🇨🇳 cnsite
   - RULE-SET,jetbrains_domain,🇨🇳 cnsite
   - RULE-SET,cn_domain,🎯 全球直连
-  - RULE-SET,cn_ip,🎯 全球直连
   - RULE-SET,steam_domain,🚂 Steam
   - RULE-SET,epic_domain,🎅 EpicGames
   - RULE-SET,private_domain,🟢 直连
@@ -147,7 +146,8 @@ rules:
   - RULE-SET,google_ip,🍀 Google,no-resolve
   - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve,no-resolve
   - RULE-SET,telegram_ip,📲 Telegram,no-resolve
-  - RULE-SET,AntiAd,REJECT
+  - RULE-SET,mycn_ip,🇨🇳 cnsite
+  - RULE-SET,cn_ip,🎯 全球直连
   - MATCH,🐟 漏网之鱼
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
