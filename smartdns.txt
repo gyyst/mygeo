@@ -5,21 +5,16 @@
 
 #指定域名结果缓存个数（不配置就是根据内存自动，如果觉得查询压力大再手动改）
 #cache-size 32768
-
-#过期缓存预获取时间
-serve-expired-prefetch-time 21600
-
-#设置cache定时保存
-cache-checkpoint-time 86400
+#cache-persist no
 
 #域名结果TTL（默认为远程查询结果）
 #rr-ttl 0
 #允许的最小TTL（默认为远程查询结果）配合后面的预获取，防止过于频繁请求
-#rr-ttl-min 100
+#rr-ttl-min 600
 #允许的最大TTL（默认为远程查询结果）
-rr-ttl-max 1200
+#rr-ttl-max 1200
 #允许返回给客户端的最大TTL（默认为远程查询结果）
-rr-ttl-reply-max 60
+#rr-ttl-reply-max 120
 
 #缓存预获取（域名TTL即将超时时，再次发送查询请求）
 prefetch-domain yes
@@ -31,11 +26,17 @@ serve-expired yes
 #情况3：开启预获取，关闭过期缓存：域名缓存即将过期（TTL即将为0）时，再次发送查询请求，缓存新结果。（本配置使用的情况，效果最好，但请求频率较高）
 #情况4：关闭预获取，关闭过期缓存：客户端查询时，若该域名缓存已过期（TTL为0），则向上查询，返回结果并缓存。
 
+#过期缓存预获取时间
+serve-expired-prefetch-time 21600
 
+#设置cache定时保存
+cache-checkpoint-time 86400
 
 #关闭特定域名的缓存（如DDNS）
 #domain-rules /example.com/ -no-cache
-domain-rules /ddns.com/ --no-serve-expired
+#domain-rules /ddns.com/ --no-serve-expired
+#domain-rules /cn.bing.com/ -no-cache
+
 #禁用ipv6
 force-AAAA-SOA yes
 
@@ -73,7 +74,6 @@ server 120.53.53.53
 server 180.76.76.76
 
 #114
-server 114.114.114.114
 server 114.114.115.115
 
 #CNNIC
@@ -89,21 +89,5 @@ server 221.131.143.69
 server 122.112.208.1
 server 139.9.23.90
 
-# Google DNS
+#google
 server 8.8.8.8
-
-# OneDNS
-server 114.215.126.16
-
-# OpenNIC DNS
-server 94.247.43.254
-
-# Norton DNS
-server 198.153.192.50
-server 198.153.194.50
-
-# Cloudflare DNS
-server 1.1.1.1
-
-# Verisign DNS
-server 64.6.65.6
