@@ -65,6 +65,7 @@ proxy-groups:
   - {name: ♻️ Clcoudflare自动, type: url-test, include-all: true, tolerance: 10, interval: 120, filter: "(?=.*((?i)CF|(?i)Cloudflare))^((?!(港|台|日|韩|新|美)).)*$"}
   - {name: 🔯 香港故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
   - {name: 🔯 日本故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
+  - {name: 🇸🇬 新加坡节点, type: select, include-all: true, filter: "(?=.*(新|SG|(?i)Singapore))^((?!(港|台|韩|日|美)).)*$" }
   - {name: ♻️ 新加坡自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新|SG|(?i)Singapore))^((?!(港|台|韩|日|美)).)*$" }
   - {name: 🇰🇷 韩国节点, type: select, include-all: true, filter: "(?i)(?=.*(kr|korea|韩国))^(?!.*(test|test1)).*$"}
   - {name: ♻️ 韩国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?i)(?=.*(kr|korea|韩国))^(?!.*(test|test1)).*$"}
